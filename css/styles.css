@@ -399,8 +399,9 @@ img {
     box-shadow: 0px 4px 4px var(--color-button-rgba);
     border-radius: 4px;
     color: var(--color-fff);
+    border: 1px solid var(--color-link);
 
-    transition-property: background-color;
+    transition-property: background-color, border;
     transition-duration: 350ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -409,6 +410,7 @@ img {
 .button:focus {
     background: var(--color-active);
     color: var(--color-fff);
+    border: 1px solid var(--color-active);
 }
 
 .button:hover {
@@ -679,13 +681,16 @@ img {
     font-size: 16px;
     line-height: 1.5;
     color: var(--color-logo-footer);
+    transition-property: transform, opacity;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main-images {
     position: relative;
     overflow: hidden;
 
-    transition-property: backdraund-color;
+    transition-property: backgraund-color;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -719,7 +724,7 @@ img {
     background-color: var(--color-link);
     opacity: 0;
 
-    transition-property: background-color;
+    transition-property: opacity, transform;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -735,11 +740,7 @@ img {
 .modal {
     position: absolute;
     width: 408px;
-    /* height: 576px; */
-    padding-top: 72px;
-    padding-left: 24px;
-    padding-right: 24px;
-    padding-bottom: 24px;
+    padding: 24px;
     left: 50%;
     transform: translateX(-50%);
     top: 88px;
@@ -792,11 +793,6 @@ img {
     border-radius: 2px;
 }
 
-.button-subscribe {
-    width: 165px;
-    height: 60px;
-}
-
 /* Homework */
 
 .backdrop-menu {
@@ -820,12 +816,8 @@ img {
 
 .form-comment:focus,
 .form-comment:hover {
-    border: 1px solid var(--color-link);
+    outline: 1px solid var(--color-link);
 }
-
-/* .form-input:active {
-    border: 1px solid var(--color-link);
-} */
 
 .policy {
     color: var(--color-link);
@@ -836,7 +828,8 @@ img {
     font-size: 12px;
     line-height: 1.33;
 
-    margin: 0;
+    padding: 0;
+    margin-left: 20px;
 
     color: var(--color-backdrop-text);
 }
@@ -846,8 +839,8 @@ img {
     font-size: 16px;
     line-height: 1.5;
 
-    padding-bottom: 34px;
-    margin: 0 auto;
+    margin-bottom: 34px;
+    margin-top: 48px;
     text-align: center;
 
     color: var(--color-a);
@@ -884,11 +877,7 @@ img {
 
 .form-input:focus,
 .form-input:hover {
-    border: 1px solid var(--color-link);
-}
-
-.form-input:active {
-    border: 1px solid var(--color-link);
+    outline: 1px solid var(--color-link);
 }
 
 .button-backdrop {
@@ -897,13 +886,15 @@ img {
 
     display: block;
     margin: 0 auto;
+    cursor: pointer;
 
     color: var(--color-fff);
     background-color: var(--color-link);
     box-shadow: 0px 4px 4px var(--color-button-rgba);
     border-radius: 4px;
+    border: 1px solid var(--color-link);
 
-    transition-property: background-color;
+    transition-property: background-color, border;
     transition-duration: 350ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -912,6 +903,7 @@ img {
 .button-backdrop:focus {
     background: var(--color-active);
     color: var(--color-fff);
+    border: 1px solid var(--color-link);
 }
 
 .button-backdrop:hover {
@@ -936,6 +928,29 @@ img {
     fill: var(--color-link);
 }
 
+.input-checkbox {
+    appearance: none;
+}
+
+.checkbox::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    border-radius: 2px;
+    border: 1.25px solid var(--color-a);
+}
+
+.input-checkbox:checked ~ .checkbox::after {
+    background-color: var(--color-active);
+    background-image: url('../img/castom-checkbox.svg');
+    background-size: contain;
+    background-origin: border-box;
+    border: transparent;
+}
 
 /* footer */
 
@@ -943,19 +958,24 @@ img {
     margin-left: 80px;
 }
 
-.button-subscribe {
-    position: relative;
+.footer-menu {
+    display: flex;
+}
 
+.button-subscribe {
     width: 165px;
     height: 40px;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: pointer;
+
     background: var(--color-link);
     color: var(--color-fff);
     fill: var(--color-fff);
     border-radius: 4px;
+    border: 1px solid var(--color-link);
 
     transition-property: background-color;
     transition-duration: 350ms;
@@ -964,18 +984,15 @@ img {
 
 .button-subscribe:hover,
 .button-subscribe:focus {
+    border: 1px solid var(--color-active);
     background: var(--color-active);
     color: var(--color-fff);
 }
 
-.svg-subscribe {
-    position: absolute;
-    top: 8px;
-    right: 34px;
-    transform: translate(50%);
-}
-
 .p-subscribe {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
     color: var(--color-fff);
     margin-bottom: 16px;
 }
@@ -990,15 +1007,10 @@ img {
 
     border: 1px solid var(--color-footer-subscribe);
     background-color: initial;
+    color: var(--color-fff);
 }
 
-.button-p {
-    width: 77px;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.5;
-
-    margin-left: 24px;
-
-    padding: 0;
+.input-footer:focus,
+.input-footer:hover {
+    outline: 1px solid var(--color-link);
 }
