@@ -977,7 +977,7 @@ img {
     border-radius: 4px;
     border: 1px solid var(--color-link);
 
-    transition-property: background-color;
+    transition-property: background-color, border;
     transition-duration: 350ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
